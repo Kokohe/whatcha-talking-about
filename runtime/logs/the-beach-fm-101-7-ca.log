@@ -1,6 +1,0 @@
-[tls @ 0x139c053e0] Unknown error
-[in#0/aac @ 0x138f05160] Error during demuxing: Input/output error
-[segment @ 0x139c0bd20] Failure occurred when ending segment '/Users/koko/translator/channels/the-beach-fm-101-7-ca/000097.wav'
-[out#0/segment @ 0x139c05bf0] Error writing trailer: Immediate exit requested
-/opt/homebrew/Cellar/python@3.14/3.14.4_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/mp-avnlysz2'}
-  warnings.warn(

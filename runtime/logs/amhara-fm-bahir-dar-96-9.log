@@ -1,232 +1,0 @@
-Traceback (most recent call last):
-  File "/Users/koko/translator/src/transcribe_worker.py", line 9, in <module>
-    import whisper
-ModuleNotFoundError: No module named 'whisper'
-[tls @ 0x151805570] Unknown error
-[segment @ 0x1507147e0] Failure occurred when ending segment '/Users/koko/translator/channels/amhara-fm-bahir-dar-96-9/000005.wav'
-[out#0/segment @ 0x150714720] Error writing trailer: Immediate exit requested
-Traceback (most recent call last):
-  File "/opt/homebrew/Cellar/python@3.14/3.14.4_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/urllib/request.py", line 1321, in do_open
-    h.request(req.get_method(), req.selector, req.data, headers,
-    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-              encode_chunked=req.has_header('Transfer-encoding'))
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/homebrew/Cellar/python@3.14/3.14.4_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 1358, in request
-    self._send_request(method, url, body, headers, encode_chunked)
-    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/homebrew/Cellar/python@3.14/3.14.4_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 1404, in _send_request
-    self.endheaders(body, encode_chunked=encode_chunked)
-    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/homebrew/Cellar/python@3.14/3.14.4_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 1353, in endheaders
-    self._send_output(message_body, encode_chunked=encode_chunked)
-    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/homebrew/Cellar/python@3.14/3.14.4_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 1113, in _send_output
-    self.send(msg)
-    ~~~~~~~~~^^^^^
-  File "/opt/homebrew/Cellar/python@3.14/3.14.4_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 1057, in send
-    self.connect()
-    ~~~~~~~~~~~~^^
-  File "/opt/homebrew/Cellar/python@3.14/3.14.4_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/client.py", line 1499, in connect
-    self.sock = self._context.wrap_socket(self.sock,
-                ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
-                                          server_hostname=server_hostname)
-                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/homebrew/Cellar/python@3.14/3.14.4_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/ssl.py", line 455, in wrap_socket
-    return self.sslsocket_class._create(
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
-        sock=sock,
-        ^^^^^^^^^^
-    ...<5 lines>...
-        session=session
-        ^^^^^^^^^^^^^^^
-    )
-    ^
-  File "/opt/homebrew/Cellar/python@3.14/3.14.4_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/ssl.py", line 1076, in _create
-    self.do_handshake()
-    ~~~~~~~~~~~~~~~~~^^
-  File "/opt/homebrew/Cellar/python@3.14/3.14.4_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/ssl.py", line 1372, in do_handshake
-    self._sslobj.do_handshake()
-    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
-ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1081)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/koko/translator/src/transcribe_worker.py", line 61, in <module>
-    main()
-    ~~~~^^
-  File "/Users/koko/translator/src/transcribe_worker.py", line 53, in main
-    run(
-    ~~~^
-        channel_dir=Path(args.channel_dir),
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        model_name=args.model,
-        ^^^^^^^^^^^^^^^^^^^^^^
-        poll_seconds=args.poll_seconds,
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "/Users/koko/translator/src/transcribe_worker.py", line 29, in run
-    model = whisper.load_model(model_name)
-  File "/Users/koko/translator/.venv/lib/python3.14/site-packages/whisper/__init__.py", line 137, in load_model
-    checkpoint_file = _download(_MODELS[name], download_root, in_memory)
-  File "/Users/koko/translator/.venv/lib/python3.14/site-packages/whisper/__init__.py", line 73, in _download
-    with urllib.request.urlopen(url) as source, open(download_target, "wb") as output:
-         ~~~~~~~~~~~~~~~~~~~~~~^^^^^
-  File "/opt/homebrew/Cellar/python@3.14/3.14.4_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/urllib/request.py", line 187, in urlopen
-    return opener.open(url, data, timeout)
-           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
-  File "/opt/homebrew/Cellar/python@3.14/3.14.4_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/urllib/request.py", line 487, in open
-    response = self._open(req, data)
-  File "/opt/homebrew/Cellar/python@3.14/3.14.4_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/urllib/request.py", line 504, in _open
-    result = self._call_chain(self.handle_open, protocol, protocol +
-                              '_open', req)
-  File "/opt/homebrew/Cellar/python@3.14/3.14.4_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/urllib/request.py", line 464, in _call_chain
-    result = func(*args)
-  File "/opt/homebrew/Cellar/python@3.14/3.14.4_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/urllib/request.py", line 1369, in https_open
-    return self.do_open(http.client.HTTPSConnection, req,
-           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                        context=self._context)
-                        ^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/homebrew/Cellar/python@3.14/3.14.4_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/urllib/request.py", line 1324, in do_open
-    raise URLError(err)
-urllib.error.URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1081)>
-[tls @ 0x145805f60] Unknown error
-[segment @ 0x144622c20] Failure occurred when ending segment '/Users/koko/translator/channels/amhara-fm-bahir-dar-96-9/000013.wav'
-[out#0/segment @ 0x144619ef0] Error writing trailer: Immediate exit requested
-  0%|                                              | 0.00/72.1M [00:00<?, ?iB/s]  1%|▌                                    | 1.00M/72.1M [00:00<00:07, 10.4MiB/s] 11%|████                                 | 8.00M/72.1M [00:00<00:01, 40.0MiB/s] 22%|███████▉                             | 15.5M/72.1M [00:00<00:01, 55.9MiB/s] 36%|█████████████▏                       | 25.7M/72.1M [00:00<00:00, 74.3MiB/s] 48%|█████████████████▊                   | 34.7M/72.1M [00:00<00:00, 80.8MiB/s] 60%|██████████████████████▎              | 43.4M/72.1M [00:00<00:00, 84.1MiB/s] 73%|██████████████████████████▉          | 52.5M/72.1M [00:00<00:00, 87.8MiB/s] 85%|███████████████████████████████▌     | 61.5M/72.1M [00:00<00:00, 89.2MiB/s] 98%|████████████████████████████████████▍| 70.9M/72.1M [00:00<00:00, 91.6MiB/s]100%|█████████████████████████████████████| 72.1M/72.1M [00:00<00:00, 79.1MiB/s]
-/opt/homebrew/Cellar/python@3.14/3.14.4_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/mp-deoldw8l'}
-  warnings.warn(
-[tls @ 0x159f0b8e0] Unknown error
-[segment @ 0x159f172b0] Failure occurred when ending segment '/Users/koko/translator/channels/amhara-fm-bahir-dar-96-9/000009.wav'
-[out#0/segment @ 0x159f16da0] Error writing trailer: Immediate exit requested
-[worker-error] 000004.wav: Failed to load audio: ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers
-  built with Apple clang version 14.0.3 (clang-1403.0.22.14.1)
-  configuration: --prefix=/opt/homebrew/Cellar/ffmpeg/8.1_1 --enable-shared --enable-pthreads --enable-version3 --cc=clang --host-cflags= --host-ldflags= --enable-ffplay --enable-gpl --enable-libsvtav1 --enable-libopus --enable-libx264 --enable-libmp3lame --enable-libdav1d --enable-libvmaf --enable-libvpx --enable-libx265 --enable-openssl --enable-videotoolbox --enable-audiotoolbox --enable-neon
-  libavutil      60. 26.100 / 60. 26.100
-  libavcodec     62. 28.100 / 62. 28.100
-  libavformat    62. 12.100 / 62. 12.100
-  libavdevice    62.  3.100 / 62.  3.100
-  libavfilter    11. 14.100 / 11. 14.100
-  libswscale      9.  5.100 /  9.  5.100
-  libswresample   6.  3.100 /  6.  3.100
-[in#0 @ 0x130e0a990] Error opening input: Invalid data found when processing input
-Error opening input file /Users/koko/translator/channels/amhara-fm-bahir-dar-96-9/000004.wav.
-Error opening input files: Invalid data found when processing input
-
-/opt/homebrew/Cellar/python@3.14/3.14.4_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/mp-q00_jnx_'}
-  warnings.warn(
-[tls @ 0x14a004250] Unknown error
-[segment @ 0x148f089f0] Failure occurred when ending segment '/Users/koko/translator/channels/amhara-fm-bahir-dar-96-9/000004.wav'
-[out#0/segment @ 0x148f09a10] Error writing trailer: Immediate exit requested
-[segment @ 0x13481eff0] Failure occurred when ending segment '/Users/koko/translator/channels/amhara-fm-bahir-dar-96-9/000008.wav'
-[out#0/segment @ 0x1348204a0] Error writing trailer: Immediate exit requested
-/opt/homebrew/Cellar/python@3.14/3.14.4_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/mp-zspsmkh1'}
-  warnings.warn(
-/opt/homebrew/Cellar/python@3.14/3.14.4_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/mp-gq1q4jyc'}
-  warnings.warn(
-[tls @ 0x14c616d20] Unknown error
-[segment @ 0x14c705870] Failure occurred when ending segment '/Users/koko/translator/channels/amhara-fm-bahir-dar-96-9/000011.wav'
-[out#0/segment @ 0x14c705450] Error writing trailer: Immediate exit requested
-/opt/homebrew/Cellar/python@3.14/3.14.4_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/mp-x0f4cmco'}
-  warnings.warn(
-[tls @ 0x12c804430] Unknown error
-[segment @ 0x12b70fe70] Failure occurred when ending segment '/Users/koko/translator/channels/amhara-fm-bahir-dar-96-9/000009.wav'
-[out#0/segment @ 0x12b70fb10] Error writing trailer: Immediate exit requested
-/opt/homebrew/Cellar/python@3.14/3.14.4_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/mp-mw7p7923'}
-  warnings.warn(
-[tls @ 0x14ee0a7c0] Unknown error
-[in#0/mp3 @ 0x14ef11770] Error during demuxing: Input/output error
-[segment @ 0x150005840] Failure occurred when ending segment '/Users/koko/translator/channels/amhara-fm-bahir-dar-96-9/000003.wav'
-[out#0/segment @ 0x150005780] Error writing trailer: Immediate exit requested
-/opt/homebrew/Cellar/python@3.14/3.14.4_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/mp-4n090ym9'}
-  warnings.warn(
-[tls @ 0x122b04460] Unknown error
-[segment @ 0x121f12d10] Failure occurred when ending segment '/Users/koko/translator/channels/amhara-fm-bahir-dar-96-9/000003.wav'
-[out#0/segment @ 0x121f0c790] Error writing trailer: Immediate exit requested
-/opt/homebrew/Cellar/python@3.14/3.14.4_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/mp-2jksjw14'}
-  warnings.warn(
-[tls @ 0x141805a50] Unknown error
-[segment @ 0x141806460] Failure occurred when ending segment '/Users/koko/translator/channels/amhara-fm-bahir-dar-96-9/000003.wav'
-[out#0/segment @ 0x141806c90] Error writing trailer: Immediate exit requested
-[tls @ 0x158e0c450] Unknown error
-[https @ 0x158f10af0] Error reading HTTP response: Input/output error
-[in#0 @ 0x158f0fdd0] Error opening input: Input/output error
-Error opening input file https://stream-176.zeno.fm/cxf4zy74em0uv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiJjeGY0enk3NGVtMHV2IiwiaG9zdCI6InN0cmVhbS0xNzYuemVuby5mbSIsInRtIjpmYWxzZSwicnR0bCI6NSwianRpIjoiazJqZzJqUWZRMi1XY2hOTmJ5NVNlZyIsImlhdCI6MTc3NzQ2ODEzNSwiZXhwIjoxNzc3NDY4MTk1fQ.skNhGLD0h4cHP-pqNGBtG8DpzhQtSS5AgUxqogq4Jok.
-Error opening input files: Input/output error
-  0%|                                               | 0.00/139M [00:00<?, ?iB/s]  0%|                                       | 112k/139M [00:00<02:13, 1.09MiB/s]  0%|▏                                      | 576k/139M [00:00<00:45, 3.16MiB/s]  2%|▋                                     | 2.56M/139M [00:00<00:12, 11.1MiB/s]  6%|██▍                                   | 9.00M/139M [00:00<00:04, 32.9MiB/s] 12%|████▌                                 | 16.5M/139M [00:00<00:02, 48.9MiB/s] 17%|██████▌                               | 24.1M/139M [00:00<00:02, 58.9MiB/s] 23%|████████▋                             | 31.7M/139M [00:00<00:01, 65.5MiB/s] 29%|██████████▊                           | 39.5M/139M [00:00<00:01, 70.3MiB/s] 33%|████████████▋                         | 46.2M/139M [00:00<00:01, 70.2MiB/s] 38%|██████████████▌                       | 52.9M/139M [00:01<00:01, 48.4MiB/s] 44%|████████████████▌                     | 60.6M/139M [00:01<00:01, 55.8MiB/s] 49%|██████████████████▋                   | 68.3M/139M [00:01<00:01, 61.9MiB/s] 54%|████████████████████▌                 | 75.1M/139M [00:01<00:01, 64.4MiB/s] 60%|██████████████████████▋               | 82.9M/139M [00:01<00:00, 68.7MiB/s] 65%|████████████████████████▋             | 89.9M/139M [00:01<00:00, 68.7MiB/s] 70%|██████████████████████████▋           | 97.2M/139M [00:01<00:00, 71.2MiB/s] 75%|█████████████████████████████▎         | 104M/139M [00:01<00:00, 71.1MiB/s] 81%|███████████████████████████████▌       | 112M/139M [00:01<00:00, 74.2MiB/s] 86%|█████████████████████████████████▋     | 120M/139M [00:02<00:00, 75.0MiB/s] 92%|███████████████████████████████████▋   | 127M/139M [00:02<00:00, 75.7MiB/s] 97%|█████████████████████████████████████▊ | 134M/139M [00:02<00:00, 76.3MiB/s]100%|███████████████████████████████████████| 139M/139M [00:02<00:00, 62.1MiB/s]
-[tls @ 0x11fe162b0] Unknown error
-[segment @ 0x121022a60] Failure occurred when ending segment '/Users/koko/translator/channels/amhara-fm-bahir-dar-96-9/000022.wav'
-[out#0/segment @ 0x1210229a0] Error writing trailer: Immediate exit requested
-/opt/homebrew/Cellar/python@3.14/3.14.4_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/mp-01odj_c8'}
-  warnings.warn(
-  0%|                                              | 0.00/1.42G [00:00<?, ?iB/s]  0%|                                      | 112k/1.42G [00:00<22:15, 1.14MiB/s]  0%|                                      | 592k/1.42G [00:00<07:35, 3.35MiB/s]  0%|                                     | 2.72M/1.42G [00:00<02:06, 12.0MiB/s]  1%|▎                                    | 9.86M/1.42G [00:00<00:41, 36.8MiB/s]  1%|▍                                    | 17.7M/1.42G [00:00<00:28, 52.9MiB/s]  2%|▌                                    | 24.0M/1.42G [00:00<00:27, 55.3MiB/s]  2%|▋                                    | 29.3M/1.42G [00:00<00:43, 34.6MiB/s]  2%|▉                                    | 36.1M/1.42G [00:01<00:35, 41.5MiB/s]  3%|█▏                                   | 44.5M/1.42G [00:01<00:28, 52.3MiB/s]  4%|█▎                                   | 51.5M/1.42G [00:01<00:25, 57.6MiB/s]  4%|█▌                                   | 59.7M/1.42G [00:01<00:22, 64.7MiB/s]  5%|█▋                                   | 66.4M/1.42G [00:01<00:22, 64.4MiB/s]  5%|█▉                                   | 74.3M/1.42G [00:01<00:21, 67.8MiB/s]  6%|██                                   | 82.1M/1.42G [00:01<00:20, 71.1MiB/s]  6%|██▎                                  | 89.6M/1.42G [00:01<00:19, 73.4MiB/s]  7%|██▍                                  | 98.0M/1.42G [00:01<00:18, 77.2MiB/s]  7%|██▊                                   | 105M/1.42G [00:01<00:18, 76.2MiB/s]  8%|██▉                                   | 113M/1.42G [00:02<00:18, 75.5MiB/s]  8%|███▏                                  | 120M/1.42G [00:02<00:19, 73.3MiB/s]  9%|███▎                                  | 128M/1.42G [00:02<00:18, 76.3MiB/s]  9%|███▌                                  | 136M/1.42G [00:02<00:18, 76.4MiB/s] 10%|███▋                                  | 143M/1.42G [00:02<00:17, 78.4MiB/s] 10%|███▉                                  | 151M/1.42G [00:02<00:17, 78.5MiB/s] 11%|████▏                                 | 159M/1.42G [00:02<00:16, 81.2MiB/s] 11%|████▎                                 | 167M/1.42G [00:02<00:16, 82.1MiB/s] 12%|████▌                                 | 175M/1.42G [00:02<00:16, 81.0MiB/s] 13%|████▊                                 | 184M/1.42G [00:02<00:16, 83.2MiB/s] 13%|████▉                                 | 192M/1.42G [00:03<00:16, 81.8MiB/s] 14%|█████▏                                | 200M/1.42G [00:03<00:15, 82.4MiB/s] 14%|█████▍                                | 208M/1.42G [00:03<00:16, 81.0MiB/s] 15%|█████▌                                | 215M/1.42G [00:03<00:16, 81.2MiB/s] 15%|█████▊                                | 223M/1.42G [00:03<00:16, 80.7MiB/s] 16%|██████                                | 231M/1.42G [00:03<00:16, 78.6MiB/s] 16%|██████▏                               | 239M/1.42G [00:03<00:15, 80.1MiB/s] 17%|██████▍                               | 247M/1.42G [00:03<00:16, 78.0MiB/s] 17%|██████▌                               | 254M/1.42G [00:03<00:17, 70.4MiB/s] 18%|██████▊                               | 262M/1.42G [00:04<00:16, 74.2MiB/s] 18%|███████                               | 269M/1.42G [00:04<00:16, 73.9MiB/s] 19%|███████▏                              | 276M/1.42G [00:04<00:16, 74.2MiB/s] 19%|███████▍                              | 284M/1.42G [00:04<00:20, 59.7MiB/s] 20%|███████▌                              | 292M/1.42G [00:04<00:18, 66.5MiB/s] 21%|███████▊                              | 299M/1.42G [00:04<00:17, 69.0MiB/s] 21%|████████                              | 307M/1.42G [00:04<00:16, 72.4MiB/s] 22%|████████▏                             | 315M/1.42G [00:04<00:15, 76.4MiB/s] 22%|████████▍                             | 323M/1.42G [00:04<00:15, 78.0MiB/s] 23%|████████▋                             | 331M/1.42G [00:05<00:14, 79.7MiB/s] 23%|████████▊                             | 339M/1.42G [00:05<00:14, 80.4MiB/s] 24%|█████████                             | 347M/1.42G [00:05<00:14, 80.0MiB/s] 24%|█████████▎                            | 355M/1.42G [00:05<00:14, 81.9MiB/s] 25%|█████████▍                            | 363M/1.42G [00:05<00:14, 80.7MiB/s] 25%|█████████▋                            | 371M/1.42G [00:05<00:13, 81.9MiB/s] 26%|█████████▉                            | 379M/1.42G [00:05<00:13, 82.5MiB/s] 27%|██████████                            | 387M/1.42G [00:05<00:13, 81.5MiB/s] 27%|██████████▎                           | 395M/1.42G [00:05<00:13, 82.0MiB/s] 28%|██████████▌                           | 403M/1.42G [00:05<00:13, 81.8MiB/s] 28%|██████████▋                           | 411M/1.42G [00:06<00:13, 82.3MiB/s] 29%|██████████▉                           | 419M/1.42G [00:06<00:13, 82.1MiB/s] 29%|███████████                           | 426M/1.42G [00:06<00:13, 80.7MiB/s] 30%|███████████▎                          | 435M/1.42G [00:06<00:13, 82.2MiB/s] 30%|███████████▌                          | 443M/1.42G [00:06<00:12, 82.1MiB/s] 31%|███████████▋                          | 451M/1.42G [00:06<00:12, 82.4MiB/s] 31%|███████████▉                          | 459M/1.42G [00:06<00:12, 83.6MiB/s] 32%|████████████▏                         | 467M/1.42G [00:06<00:12, 80.4MiB/s] 33%|████████████▍                         | 475M/1.42G [00:06<00:12, 81.7MiB/s] 33%|████████████▌                         | 483M/1.42G [00:06<00:12, 79.7MiB/s] 34%|████████████▊                         | 491M/1.42G [00:07<00:12, 80.8MiB/s] 34%|████████████▉                         | 498M/1.42G [00:07<00:12, 80.9MiB/s] 35%|█████████████▏                        | 507M/1.42G [00:07<00:12, 82.7MiB/s] 35%|█████████████▍                        | 515M/1.42G [00:07<00:11, 83.1MiB/s] 36%|█████████████▋                        | 523M/1.42G [00:07<00:12, 81.5MiB/s] 36%|█████████████▊                        | 531M/1.42G [00:07<00:11, 82.7MiB/s] 37%|██████████████                        | 539M/1.42G [00:07<00:11, 82.2MiB/s] 38%|██████████████▎                       | 547M/1.42G [00:07<00:11, 79.6MiB/s] 38%|██████████████▍                       | 555M/1.42G [00:07<00:11, 80.9MiB/s] 39%|██████████████▋                       | 563M/1.42G [00:08<00:11, 79.2MiB/s] 39%|██████████████▊                       | 570M/1.42G [00:08<00:11, 79.7MiB/s] 40%|███████████████                       | 578M/1.42G [00:08<00:11, 79.6MiB/s] 40%|███████████████▎                      | 586M/1.42G [00:08<00:11, 80.1MiB/s] 41%|███████████████▍                      | 593M/1.42G [00:08<00:11, 80.3MiB/s] 41%|███████████████▋                      | 601M/1.42G [00:08<00:11, 80.2MiB/s] 42%|███████████████▊                      | 609M/1.42G [00:08<00:11, 79.2MiB/s] 42%|████████████████                      | 616M/1.42G [00:08<00:11, 77.2MiB/s] 43%|████████████████▎                     | 624M/1.42G [00:08<00:11, 78.3MiB/s] 43%|████████████████▍                     | 632M/1.42G [00:08<00:11, 78.2MiB/s] 44%|████████████████▋                     | 639M/1.42G [00:09<00:11, 77.0MiB/s] 44%|████████████████▊                     | 647M/1.42G [00:09<00:10, 78.1MiB/s] 45%|█████████████████                     | 654M/1.42G [00:09<00:11, 76.1MiB/s] 45%|█████████████████▎                    | 662M/1.42G [00:09<00:11, 74.1MiB/s] 46%|█████████████████▍                    | 669M/1.42G [00:09<00:11, 74.3MiB/s] 46%|█████████████████▌                    | 676M/1.42G [00:09<00:11, 71.0MiB/s] 47%|█████████████████▊                    | 683M/1.42G [00:09<00:11, 72.2MiB/s] 47%|█████████████████▉                    | 690M/1.42G [00:09<00:11, 72.3MiB/s] 48%|██████████████████▏                   | 697M/1.42G [00:09<00:11, 70.5MiB/s] 48%|██████████████████▎                   | 704M/1.42G [00:09<00:11, 70.2MiB/s] 49%|██████████████████▌                   | 710M/1.42G [00:10<00:11, 68.3MiB/s] 49%|██████████████████▋                   | 717M/1.42G [00:10<00:19, 39.7MiB/s] 50%|██████████████████▉                   | 724M/1.42G [00:10<00:16, 47.6MiB/s] 50%|███████████████████                   | 732M/1.42G [00:10<00:14, 53.4MiB/s] 51%|███████████████████▎                  | 740M/1.42G [00:10<00:12, 59.9MiB/s] 51%|███████████████████▍                  | 748M/1.42G [00:10<00:11, 65.7MiB/s] 52%|███████████████████▋                  | 755M/1.42G [00:10<00:10, 67.2MiB/s] 52%|███████████████████▉                  | 763M/1.42G [00:11<00:10, 71.8MiB/s] 53%|████████████████████                  | 770M/1.42G [00:11<00:10, 72.0MiB/s] 53%|████████████████████▎                 | 777M/1.42G [00:11<00:09, 73.3MiB/s] 54%|████████████████████▍                 | 785M/1.42G [00:11<00:09, 74.9MiB/s] 54%|████████████████████▋                 | 792M/1.42G [00:11<00:09, 73.2MiB/s] 55%|████████████████████▊                 | 800M/1.42G [00:11<00:09, 74.7MiB/s] 55%|█████████████████████                 | 807M/1.42G [00:11<00:09, 75.4MiB/s] 56%|█████████████████████▎                | 815M/1.42G [00:11<00:08, 77.0MiB/s] 56%|█████████████████████▍                | 823M/1.42G [00:11<00:08, 77.6MiB/s] 57%|█████████████████████▋                | 831M/1.42G [00:11<00:08, 79.8MiB/s] 58%|█████████████████████▊                | 839M/1.42G [00:12<00:08, 77.8MiB/s] 58%|██████████████████████                | 846M/1.42G [00:12<00:08, 78.0MiB/s] 59%|██████████████████████▎               | 854M/1.42G [00:12<00:07, 79.2MiB/s] 59%|██████████████████████▍               | 862M/1.42G [00:12<00:08, 77.3MiB/s] 60%|██████████████████████▋               | 869M/1.42G [00:12<00:07, 78.0MiB/s] 60%|██████████████████████▊               | 877M/1.42G [00:12<00:08, 72.7MiB/s] 61%|███████████████████████               | 884M/1.42G [00:12<00:08, 74.7MiB/s] 61%|███████████████████████▎              | 892M/1.42G [00:12<00:07, 76.9MiB/s] 62%|███████████████████████▍              | 900M/1.42G [00:12<00:07, 77.2MiB/s] 62%|███████████████████████▋              | 908M/1.42G [00:13<00:07, 78.5MiB/s] 63%|███████████████████████▊              | 915M/1.42G [00:13<00:07, 77.7MiB/s] 63%|████████████████████████              | 923M/1.42G [00:13<00:07, 77.4MiB/s] 64%|████████████████████████▎             | 931M/1.42G [00:13<00:07, 78.0MiB/s] 64%|████████████████████████▍             | 938M/1.42G [00:13<00:06, 78.3MiB/s] 65%|████████████████████████▋             | 946M/1.42G [00:13<00:06, 80.6MiB/s] 65%|████████████████████████▉             | 954M/1.42G [00:13<00:06, 80.2MiB/s] 66%|█████████████████████████             | 962M/1.42G [00:13<00:06, 80.6MiB/s] 67%|█████████████████████████▎            | 969M/1.42G [00:13<00:06, 78.0MiB/s] 67%|█████████████████████████▍            | 978M/1.42G [00:13<00:06, 80.0MiB/s] 68%|█████████████████████████▋            | 985M/1.42G [00:14<00:06, 76.0MiB/s] 68%|█████████████████████████▉            | 993M/1.42G [00:14<00:06, 78.0MiB/s] 69%|█████████████████████████▍           | 0.98G/1.42G [00:14<00:06, 79.5MiB/s] 69%|█████████████████████████▌           | 0.99G/1.42G [00:14<00:05, 79.9MiB/s] 70%|█████████████████████████▊           | 0.99G/1.42G [00:14<00:05, 81.1MiB/s] 70%|██████████████████████████           | 1.00G/1.42G [00:14<00:05, 78.6MiB/s] 71%|██████████████████████████▏          | 1.01G/1.42G [00:14<00:05, 78.6MiB/s] 71%|██████████████████████████▍          | 1.02G/1.42G [00:14<00:05, 79.0MiB/s] 72%|██████████████████████████▌          | 1.02G/1.42G [00:14<00:05, 78.4MiB/s] 72%|██████████████████████████▊          | 1.03G/1.42G [00:14<00:05, 77.2MiB/s] 73%|██████████████████████████▉          | 1.04G/1.42G [00:15<00:05, 73.2MiB/s] 73%|███████████████████████████▏         | 1.04G/1.42G [00:15<00:05, 72.8MiB/s] 74%|███████████████████████████▎         | 1.05G/1.42G [00:15<00:05, 71.9MiB/s] 74%|███████████████████████████▌         | 1.06G/1.42G [00:15<00:05, 75.7MiB/s] 75%|███████████████████████████▋         | 1.07G/1.42G [00:15<00:05, 75.8MiB/s] 75%|███████████████████████████▉         | 1.07G/1.42G [00:15<00:04, 75.3MiB/s] 76%|████████████████████████████         | 1.08G/1.42G [00:15<00:04, 77.0MiB/s] 76%|████████████████████████████▎        | 1.09G/1.42G [00:15<00:04, 78.8MiB/s] 77%|████████████████████████████▌        | 1.10G/1.42G [00:15<00:04, 79.3MiB/s] 78%|████████████████████████████▋        | 1.10G/1.42G [00:16<00:04, 78.9MiB/s] 78%|████████████████████████████▉        | 1.11G/1.42G [00:16<00:04, 78.5MiB/s] 79%|█████████████████████████████        | 1.12G/1.42G [00:16<00:04, 77.5MiB/s] 79%|█████████████████████████████▎       | 1.13G/1.42G [00:16<00:04, 79.2MiB/s] 80%|█████████████████████████████▍       | 1.13G/1.42G [00:16<00:03, 79.8MiB/s] 80%|█████████████████████████████▋       | 1.14G/1.42G [00:16<00:03, 78.0MiB/s] 81%|█████████████████████████████▊       | 1.15G/1.42G [00:16<00:03, 75.4MiB/s] 81%|██████████████████████████████       | 1.16G/1.42G [00:16<00:04, 70.7MiB/s] 82%|██████████████████████████████▏      | 1.16G/1.42G [00:16<00:03, 73.7MiB/s] 82%|██████████████████████████████▍      | 1.17G/1.42G [00:16<00:03, 74.2MiB/s] 83%|██████████████████████████████▋      | 1.18G/1.42G [00:17<00:03, 77.9MiB/s] 83%|██████████████████████████████▊      | 1.19G/1.42G [00:17<00:03, 78.0MiB/s] 84%|███████████████████████████████      | 1.19G/1.42G [00:17<00:03, 79.3MiB/s] 84%|███████████████████████████████▏     | 1.20G/1.42G [00:17<00:02, 81.6MiB/s] 85%|███████████████████████████████▍     | 1.21G/1.42G [00:17<00:02, 81.2MiB/s] 86%|███████████████████████████████▋     | 1.22G/1.42G [00:17<00:02, 82.6MiB/s] 86%|███████████████████████████████▊     | 1.22G/1.42G [00:17<00:02, 82.1MiB/s] 87%|████████████████████████████████     | 1.23G/1.42G [00:17<00:02, 82.1MiB/s] 87%|████████████████████████████████▏    | 1.24G/1.42G [00:17<00:02, 82.0MiB/s] 88%|████████████████████████████████▍    | 1.25G/1.42G [00:17<00:02, 80.9MiB/s] 88%|████████████████████████████████▋    | 1.26G/1.42G [00:18<00:02, 81.3MiB/s] 89%|████████████████████████████████▊    | 1.26G/1.42G [00:18<00:02, 81.2MiB/s] 89%|█████████████████████████████████    | 1.27G/1.42G [00:18<00:02, 81.5MiB/s] 90%|█████████████████████████████████▏   | 1.28G/1.42G [00:18<00:01, 78.2MiB/s] 90%|█████████████████████████████████▍   | 1.29G/1.42G [00:18<00:01, 77.8MiB/s] 91%|█████████████████████████████████▋   | 1.29G/1.42G [00:18<00:01, 77.3MiB/s] 91%|█████████████████████████████████▊   | 1.30G/1.42G [00:18<00:01, 77.6MiB/s] 92%|██████████████████████████████████   | 1.31G/1.42G [00:18<00:01, 77.8MiB/s] 92%|██████████████████████████████████▏  | 1.32G/1.42G [00:18<00:01, 78.2MiB/s] 93%|██████████████████████████████████▍  | 1.32G/1.42G [00:19<00:01, 79.0MiB/s] 93%|██████████████████████████████████▌  | 1.33G/1.42G [00:19<00:01, 79.0MiB/s] 94%|██████████████████████████████████▊  | 1.34G/1.42G [00:19<00:01, 79.5MiB/s] 95%|██████████████████████████████████▉  | 1.35G/1.42G [00:19<00:01, 78.4MiB/s] 95%|███████████████████████████████████▏ | 1.35G/1.42G [00:19<00:00, 78.6MiB/s] 96%|███████████████████████████████████▎ | 1.36G/1.42G [00:19<00:00, 78.5MiB/s] 96%|███████████████████████████████████▌ | 1.37G/1.42G [00:19<00:00, 79.0MiB/s] 97%|███████████████████████████████████▊ | 1.38G/1.42G [00:19<00:00, 79.3MiB/s] 97%|███████████████████████████████████▉ | 1.38G/1.42G [00:19<00:00, 79.1MiB/s] 98%|████████████████████████████████████▏| 1.39G/1.42G [00:19<00:00, 81.4MiB/s] 98%|████████████████████████████████████▎| 1.40G/1.42G [00:20<00:00, 81.2MiB/s] 99%|████████████████████████████████████▌| 1.41G/1.42G [00:20<00:00, 82.2MiB/s] 99%|████████████████████████████████████▊| 1.41G/1.42G [00:20<00:00, 82.7MiB/s]100%|████████████████████████████████████▉| 1.42G/1.42G [00:20<00:00, 81.5MiB/s]100%|█████████████████████████████████████| 1.42G/1.42G [00:20<00:00, 75.0MiB/s]
-[tls @ 0x14000cac0] Unknown error
-[segment @ 0x13f706230] Failure occurred when ending segment '/Users/koko/translator/channels/amhara-fm-bahir-dar-96-9/000003.wav'
-[out#0/segment @ 0x13f705d80] Error writing trailer: Immediate exit requested
-/opt/homebrew/Cellar/python@3.14/3.14.4_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/mp-ct0or6rp'}
-  warnings.warn(
-  0%|                                               | 0.00/461M [00:00<?, ?iB/s]  0%|                                      | 1.50M/461M [00:00<00:30, 15.7MiB/s]  2%|▌                                     | 7.36M/461M [00:00<00:11, 42.3MiB/s]  3%|█                                     | 13.2M/461M [00:00<00:09, 50.9MiB/s]  5%|█▉                                    | 24.1M/461M [00:00<00:06, 75.9MiB/s]  8%|██▊                                   | 34.7M/461M [00:00<00:05, 87.7MiB/s] 10%|███▊                                  | 45.6M/461M [00:00<00:04, 97.0MiB/s] 12%|████▋                                  | 56.1M/461M [00:00<00:04, 101MiB/s] 14%|█████▋                                 | 66.6M/461M [00:00<00:03, 104MiB/s] 17%|██████▍                                | 76.5M/461M [00:00<00:04, 101MiB/s] 19%|███████▎                               | 86.5M/461M [00:01<00:03, 102MiB/s] 21%|████████▏                              | 96.3M/461M [00:01<00:03, 102MiB/s] 23%|█████████▎                              | 107M/461M [00:01<00:03, 106MiB/s] 25%|██████████▏                             | 117M/461M [00:01<00:03, 104MiB/s] 28%|███████████                             | 127M/461M [00:01<00:03, 104MiB/s] 30%|███████████▉                            | 137M/461M [00:01<00:03, 103MiB/s] 32%|████████████▊                           | 148M/461M [00:01<00:03, 105MiB/s] 34%|█████████████▋                          | 158M/461M [00:01<00:03, 105MiB/s] 37%|██████████████▋                         | 169M/461M [00:01<00:02, 107MiB/s] 39%|███████████████▌                        | 179M/461M [00:01<00:02, 107MiB/s] 41%|████████████████▍                       | 189M/461M [00:02<00:02, 105MiB/s] 43%|█████████████████▎                      | 199M/461M [00:02<00:02, 106MiB/s] 46%|██████████████████▏                     | 210M/461M [00:02<00:02, 107MiB/s] 48%|███████████████████                     | 220M/461M [00:02<00:02, 106MiB/s] 50%|███████████████████▉                    | 230M/461M [00:02<00:02, 106MiB/s] 52%|████████████████████▊                   | 241M/461M [00:02<00:02, 103MiB/s] 54%|█████████████████████▊                  | 251M/461M [00:02<00:02, 105MiB/s] 57%|██████████████████████▋                 | 262M/461M [00:02<00:01, 106MiB/s] 59%|███████████████████████▌                | 272M/461M [00:02<00:01, 106MiB/s] 61%|████████████████████████▌               | 283M/461M [00:02<00:01, 109MiB/s] 64%|█████████████████████████▍              | 294M/461M [00:03<00:01, 108MiB/s] 66%|██████████████████████████▍             | 304M/461M [00:03<00:01, 109MiB/s] 68%|███████████████████████████▎            | 315M/461M [00:03<00:01, 109MiB/s] 71%|████████████████████████████▏           | 325M/461M [00:03<00:01, 110MiB/s] 73%|█████████████████████████████▏          | 336M/461M [00:03<00:01, 109MiB/s] 75%|██████████████████████████████          | 346M/461M [00:03<00:01, 108MiB/s] 77%|██████████████████████████████▉         | 357M/461M [00:03<00:01, 107MiB/s] 80%|███████████████████████████████▊        | 367M/461M [00:03<00:00, 106MiB/s] 82%|████████████████████████████████▋       | 377M/461M [00:03<00:00, 107MiB/s] 84%|█████████████████████████████████▌      | 388M/461M [00:03<00:00, 107MiB/s] 86%|██████████████████████████████████▍     | 398M/461M [00:04<00:00, 106MiB/s] 88%|███████████████████████████████████▎    | 408M/461M [00:04<00:00, 105MiB/s] 91%|████████████████████████████████████▎   | 418M/461M [00:04<00:00, 107MiB/s] 93%|█████████████████████████████████████▏  | 429M/461M [00:04<00:00, 107MiB/s] 95%|██████████████████████████████████████  | 439M/461M [00:04<00:00, 107MiB/s] 97%|██████████████████████████████████████▉ | 449M/461M [00:04<00:00, 106MiB/s]100%|███████████████████████████████████████▊| 459M/461M [00:04<00:00, 106MiB/s]100%|████████████████████████████████████████| 461M/461M [00:04<00:00, 103MiB/s]
-[worker-error] 000001.wav: Failed to load audio: ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers
-  built with Apple clang version 14.0.3 (clang-1403.0.22.14.1)
-  configuration: --prefix=/opt/homebrew/Cellar/ffmpeg/8.1_1 --enable-shared --enable-pthreads --enable-version3 --cc=clang --host-cflags= --host-ldflags= --enable-ffplay --enable-gpl --enable-libsvtav1 --enable-libopus --enable-libx264 --enable-libmp3lame --enable-libdav1d --enable-libvmaf --enable-libvpx --enable-libx265 --enable-openssl --enable-videotoolbox --enable-audiotoolbox --enable-neon
-  libavutil      60. 26.100 / 60. 26.100
-  libavcodec     62. 28.100 / 62. 28.100
-  libavformat    62. 12.100 / 62. 12.100
-  libavdevice    62.  3.100 / 62.  3.100
-  libavfilter    11. 14.100 / 11. 14.100
-  libswscale      9.  5.100 /  9.  5.100
-  libswresample   6.  3.100 /  6.  3.100
-[in#0 @ 0x155f04bd0] Error opening input: No such file or directory
-Error opening input file /Users/koko/translator/channels/amhara-fm-bahir-dar-96-9/000001.wav.
-Error opening input files: No such file or directory
-
-[worker-error] 000002.wav: Failed to load audio: ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers
-  built with Apple clang version 14.0.3 (clang-1403.0.22.14.1)
-  configuration: --prefix=/opt/homebrew/Cellar/ffmpeg/8.1_1 --enable-shared --enable-pthreads --enable-version3 --cc=clang --host-cflags= --host-ldflags= --enable-ffplay --enable-gpl --enable-libsvtav1 --enable-libopus --enable-libx264 --enable-libmp3lame --enable-libdav1d --enable-libvmaf --enable-libvpx --enable-libx265 --enable-openssl --enable-videotoolbox --enable-audiotoolbox --enable-neon
-  libavutil      60. 26.100 / 60. 26.100
-  libavcodec     62. 28.100 / 62. 28.100
-  libavformat    62. 12.100 / 62. 12.100
-  libavdevice    62.  3.100 / 62.  3.100
-  libavfilter    11. 14.100 / 11. 14.100
-  libswscale      9.  5.100 /  9.  5.100
-  libswresample   6.  3.100 /  6.  3.100
-[in#0 @ 0x14ff05600] Error opening input: No such file or directory
-Error opening input file /Users/koko/translator/channels/amhara-fm-bahir-dar-96-9/000002.wav.
-Error opening input files: No such file or directory
-
-[worker-error] 000003.wav: Failed to load audio: ffmpeg version 8.1 Copyright (c) 2000-2026 the FFmpeg developers
-  built with Apple clang version 14.0.3 (clang-1403.0.22.14.1)
-  configuration: --prefix=/opt/homebrew/Cellar/ffmpeg/8.1_1 --enable-shared --enable-pthreads --enable-version3 --cc=clang --host-cflags= --host-ldflags= --enable-ffplay --enable-gpl --enable-libsvtav1 --enable-libopus --enable-libx264 --enable-libmp3lame --enable-libdav1d --enable-libvmaf --enable-libvpx --enable-libx265 --enable-openssl --enable-videotoolbox --enable-audiotoolbox --enable-neon
-  libavutil      60. 26.100 / 60. 26.100
-  libavcodec     62. 28.100 / 62. 28.100
-  libavformat    62. 12.100 / 62. 12.100
-  libavdevice    62.  3.100 / 62.  3.100
-  libavfilter    11. 14.100 / 11. 14.100
-  libswscale      9.  5.100 /  9.  5.100
-  libswresample   6.  3.100 /  6.  3.100
-[in#0 @ 0x11ff05600] Error opening input: No such file or directory
-Error opening input file /Users/koko/translator/channels/amhara-fm-bahir-dar-96-9/000003.wav.
-Error opening input files: No such file or directory
-
-[tls @ 0x12b9058c0] Unknown error
-[segment @ 0x12b80e370] Failure occurred when ending segment '/Users/koko/translator/channels/amhara-fm-bahir-dar-96-9/000003.wav'
-[out#0/segment @ 0x12b817b30] Error writing trailer: Immediate exit requested
-/opt/homebrew/Cellar/python@3.14/3.14.4_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/mp-u7zaqygg'}
-  warnings.warn(
-[tls @ 0x14c005200] Unknown error
-[segment @ 0x14af35170] Failure occurred when ending segment '/Users/koko/translator/channels/amhara-fm-bahir-dar-96-9/000010.wav'
-[out#0/segment @ 0x14af34600] Error writing trailer: Immediate exit requested
-/opt/homebrew/Cellar/python@3.14/3.14.4_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/mp-ugmh723n'}
-  warnings.warn(
-[tls @ 0x1594041a0] Unknown error
-[segment @ 0x1592056e0] Failure occurred when ending segment '/Users/koko/translator/channels/amhara-fm-bahir-dar-96-9/000001.wav'
-[out#0/segment @ 0x1592053d0] Error writing trailer: Immediate exit requested
-/opt/homebrew/Cellar/python@3.14/3.14.4_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/mp-zpgvsx2m'}
-  warnings.warn(
-[worker-error] 000001.wav: expected string or bytes-like object, got 'NoneType'
-/opt/homebrew/Cellar/python@3.14/3.14.4_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/mp-apg6d3xp'}
-  warnings.warn(
-[tls @ 0x11d80a230] Unknown error
-[segment @ 0x11ce2c6d0] Failure occurred when ending segment '/Users/koko/translator/channels/amhara-fm-bahir-dar-96-9/000003.wav'
-[out#0/segment @ 0x11ce22d70] Error writing trailer: Immediate exit requested
