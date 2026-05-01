@@ -33,13 +33,28 @@
             <h6>WORK IN PROGRESS - Track transcripts for radio, real time air traffic data, maritime data and satellite data.</h6>
             <h2></h2>
           </div>
-        <div class="col-lg-10 offset-lg-1">
+        <div class="col-lg-10 offset-lg-1 category-home">
           <ul class="categories">
-            <li><a href="category.html"><span class="icon"><img src="assets/images/radio-icon.png" alt="Home"></a></li>
-            <li><a href="listing.html"><span class="icon"><img src="assets/images/plane-icon.png" alt="Food"></a></li>
-            <li><a href="#"><span class="icon"><img src="assets/images/ship-icon.png" alt="Vehicle"></a></li>
-            <li><a href="#"><span class="icon"><img src="assets/images/satellite-icon.png" alt="Shopping"></a></li>
+            <li><a href="#" class="category-launch" data-mode="radio"><span class="icon"><img src="assets/images/radio-icon.png" alt="Radio"></span></a></li>
+            <li><a href="#" class="category-launch" data-mode="plane"><span class="icon"><img src="assets/images/plane-icon.png" alt="Plane"></span></a></li>
+            <li><a href="#" class="category-launch" data-mode="ship"><span class="icon"><img src="assets/images/ship-icon.png" alt="Ship"></span></a></li>
+            <li><a href="#" class="category-launch" data-mode="satellite"><span class="icon"><img src="assets/images/satellite-icon.png" alt="Satellite"></span></a></li>
           </ul>
+        </div>
+        <div class="col-lg-10 offset-lg-1 category-view d-none">
+          <div class="category-panel">
+            <div class="category-panel-header">
+              <button class="back-button" type="button">← Back</button>
+              <div>
+                <h2 class="category-title">Category</h2>
+                <p class="category-description">Search or pick an item to begin.</p>
+              </div>
+            </div>
+            <div class="category-search-wrapper">
+              <input id="category-search" type="text" placeholder="Search..." autocomplete="off">
+            </div>
+            <ul class="category-item-list"></ul>
+          </div>
         </div>
       </div>
   </div>
